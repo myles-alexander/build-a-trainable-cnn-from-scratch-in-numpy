@@ -52,8 +52,12 @@ def one_hot(labels, num_classes):
         matrix[i,value] = 1
     return matrix
 
-# Step 7 - gather_true_class_probs (not yet solved)
-# TODO: implement
+# Step 7 - gather_true_class_probs
+import numpy as np
+def gather_true_class_probs(probs, labels):
+    # TODO: return probs[i, labels[i]] for every row i as a 1D length-N array.
+    indices_2d = labels[:, np.newaxis]
+    return np.take_along_axis(probs, indices_2d,axis=1).reshape(-1)
 
 # Step 8 - cross_entropy_loss (not yet solved)
 # TODO: implement
