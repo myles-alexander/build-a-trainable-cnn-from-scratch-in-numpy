@@ -78,8 +78,25 @@ def he_std(fan_in):
     # TODO: return the He initialization standard deviation sqrt(2 / fan_in).
     return np.sqrt(2/fan_in)
 
-# Step 11 - he_init (not yet solved)
-# TODO: implement
+# Step 11 - he_init
+'''
+def he_init(shape, fan_in, seed):
+    # TODO: sample a weight tensor from a normal distribution scaled by He std using the seed.
+    generator = np.random.default_rng(seed=seed)
+    sd = he_std(fan_in)
+    layer = generator.normal(loc=0,scale=sd,size=shape)
+    return layer
+    '''
+
+def he_init(shape, fan_in, seed=0):
+    # Legacy seeding mechanism
+    np.random.seed(seed)
+    
+    sd = np.sqrt(2.0 / fan_in)
+    
+    # Legacy normal distribution function
+    layer = np.random.normal(loc=0.0, scale=sd, size=shape)
+    return layer
 
 # Step 12 - init_zero_bias (not yet solved)
 # TODO: implement
