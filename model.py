@@ -159,8 +159,11 @@ def im2col(images, kernel_h, kernel_w, stride, padding):
 # Step 16 - col2im (not yet solved)
 # TODO: implement
 
-# Step 17 - conv2d_forward (not yet solved)
-# TODO: implement
+# Step 17 - conv2d_forward
+def conv2d_forward(x, weights, bias, stride, padding):
+    # TODO: convolve x with weights using im2col, add bias, return output and a backprop cache.
+    unrolled = im2col(x, stride = stride, padding = padding)
+    forward = unrolled * weights + bias
 
 # Step 18 - conv2d_grad_input (not yet solved)
 # TODO: implement
